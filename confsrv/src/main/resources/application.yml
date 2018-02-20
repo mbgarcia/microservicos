@@ -18,10 +18,8 @@ spring:
       server:
         encrypt.enabled: false
         git:
-          uri: https://github.com/mbgarcia/config-repo/
-          searchPaths: licensingservice,organizationservice,zuulservice,specialroutesservice
-          username: mbgarcia
-          password: mar0779
+          uri: https://github.com/mbgarcia/microservices/config-repo/
+          searchPaths: licensingservice,organizationservice,zuulservice,specialroutesservice, cryptoservice
 
 
 ####

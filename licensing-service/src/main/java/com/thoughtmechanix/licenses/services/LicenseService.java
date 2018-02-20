@@ -19,7 +19,6 @@ import com.thoughtmechanix.licenses.config.ServiceConfig;
 import com.thoughtmechanix.licenses.model.License;
 import com.thoughtmechanix.licenses.model.Organization;
 import com.thoughtmechanix.licenses.repository.LicenseRepository;
-import com.thoughtmechanix.licenses.utils.UserContextHolder;
 
 @Service
 public class LicenseService {
@@ -98,8 +97,6 @@ public class LicenseService {
                 @HystrixProperty(name="metrics.rollingStats.numBuckets", value="1")
 		})
 	public List<License> getLicensesByOrg(String organizationId) {
-        logger.debug("LicenseService.getLicensesByOrg  Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
-		
 		//randomlyRunLong();
 		
 		return licenseRepository.findByOrganizationId(organizationId);

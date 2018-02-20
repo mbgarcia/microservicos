@@ -9,7 +9,13 @@ eureka:
     fetchRegistry: true
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
-
+        
+logging:
+    level:
+      com.netflix: WARN
+      org.springframework.web: WARN
+      com.thoughtmechanix: DEBUG
+      
 management:
   security:
     enabled: false

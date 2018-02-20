@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.thoughtmechanix.licenses.model.License;
 import com.thoughtmechanix.licenses.services.LicenseService;
-import com.thoughtmechanix.licenses.utils.UserContextHolder;
 
 @RestController
 @RequestMapping(value="v1/organizations/{organizationId}/licenses")
@@ -26,13 +25,14 @@ public class LicenseServiceController {
 
     @RequestMapping(value="/",method = RequestMethod.GET)
     public List<License> getLicenses( @PathVariable("organizationId") String organizationId) {
-        logger.debug("LicenseServiceController Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
+    	logger.debug("Entering the license-service-controller  ");
         return licenseService.getLicensesByOrg(organizationId);
     }
     
     @RequestMapping(value="/{licenseId}",method = RequestMethod.GET)
     public License getLicenses( @PathVariable("organizationId") String organizationId,
                                 @PathVariable("licenseId") String licenseId) {
+    	logger.debug("Entering the license-service-controller  ");
 
         return licenseService.getLicense(organizationId, licenseId);
 
