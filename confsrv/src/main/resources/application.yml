@@ -15,12 +15,13 @@ server:
 spring:
   cloud:
     config:
+      discovery:
+        enabled: true      
       server:
         encrypt.enabled: false
         git:
-          uri: https://github.com/mbgarcia/microservices/config-repo/
+          uri: https://github.com/mbgarcia/config-repo/
           searchPaths: licensingservice,organizationservice,zuulservice,specialroutesservice, cryptoservice
-
 
 ####
 #Classpath and file-based solution
@@ -38,3 +39,10 @@ spring:
 #              searchLocations: file:///C:/desenvolvimento/microservicos/confsrv/src/main/resources/config/licensingservice
 #                               file://<chapter 3>confsvr/src/main/resources/config/organizationservice
 ###              #searchLocations: classpath:config/,classpath:config/licensingservice
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG

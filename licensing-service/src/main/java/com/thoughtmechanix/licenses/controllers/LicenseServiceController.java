@@ -25,14 +25,14 @@ public class LicenseServiceController {
 
     @RequestMapping(value="/",method = RequestMethod.GET)
     public List<License> getLicenses( @PathVariable("organizationId") String organizationId) {
-    	logger.debug("Entering the license-service-controller  ");
+    	logger.debug("Entering the license-service-controller:getLicenses:organizationId  ");
         return licenseService.getLicensesByOrg(organizationId);
     }
     
     @RequestMapping(value="/{licenseId}",method = RequestMethod.GET)
     public License getLicenses( @PathVariable("organizationId") String organizationId,
                                 @PathVariable("licenseId") String licenseId) {
-    	logger.debug("Entering the license-service-controller  ");
+    	logger.debug("Entering the license-service-controller:getLicenses:organizationId:licenseId  ");
 
         return licenseService.getLicense(organizationId, licenseId);
 
@@ -42,6 +42,7 @@ public class LicenseServiceController {
     public License getLicensesWithClient( @PathVariable("organizationId") String organizationId,
                                           @PathVariable("licenseId") String licenseId,
                                           @PathVariable("clientType") String clientType) {
+    	logger.debug("Entering the license-service-controller:getLicensesWithClient  ");
 
         return licenseService.getLicense(organizationId,licenseId, clientType);
     }
